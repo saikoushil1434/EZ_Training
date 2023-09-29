@@ -1,0 +1,62 @@
+*write a code for sum of an array?
+
+def sum array(array):
+    return sum(array)
+
+my array = [1, 2, 3, 4, 5]
+total = sum array(my array)
+print(total)  
+
+*Write a code for linear search?
+
+
+*Space complexity:
+* It parallel to array(size)n will take O(n)
+
+*Constant space complexity O(n):
+same amount of space in input regardless of input size n 
+example1:
+sum of array elements and linear search.
+
+*why it is O(1):Because space is not depending on values.
+
+*quick sort
+
+
+
+*python code:
+
+def generate_list_of_lists(n):
+table_list=[]
+ror num in range(n):
+row=[]
+for I in range(n):
+row.append(i)
+table_list.append(row)
+return table_list
+print(generate_list_of_lists(10)
+
+
+*In C:
+
+
+#include<stdio.h>
+struct a {
+int x;
+char y;
+double z;
+};
+int main()
+{
+struct a yes;
+printf(“%d”,sizeof(yes));
+return 0;
+}
+
+
+int add(int n){
+if(n<=0){
+return 0;
+}
+return n+add(n-1);
+}
