@@ -1,0 +1,102 @@
+//palindrome:
+def main():
+    _str = "madammadam"
+    #a = int(input())
+    n = len(_str)
+    dp = [[0 for i in range(n)] for j in range(n)]
+    #print(dp)
+    i,j = 0,0
+    count = 0
+    while j < n:
+        jflag = j
+        while jflag < n:
+            if i == jflag:
+                dp[i][jflag] = 1
+                count+=1
+                
+            elif abs(i-jflag) == 1:
+                if _str[i]==_str[jflag]:
+                    dp[i][jflag]=1
+                    count+=1
+                else:
+                    dp[i][jflag]=0
+            else:
+                if _str[i]==_str[jflag]:
+                    if dp[i+1][jflag-1]==1:
+                        dp[i][jflag]=1
+                        count+=1
+                    else:
+                        dp[i][jflag]=0
+                else:
+                    dp[i][jflag]=0
+            i+=1
+            jflag+=1
+        j+=1
+        i=0
+    #print(dp)
+    return count
+
+print(main())
+
+//recursion:
+from time import *
+
+def fun(n):
+    if n<=2: return n
+    return fun(n-2)+fun(n-4)
+# start_time = perf_counter()
+# ans = fun(16)
+# sleep(0)
+# end_time = perf_counter()
+# print((end_time-start_time)*1000," ms")
+
+dp =  [-100 for i in range(17)]
+def optimised_fun(n):
+    global dp 
+    if dp[n] != -100:
+        return dp[n]
+    if n<=2:
+        dp[n] = n
+        return n
+    ans1 = fun(n-2)
+    ans2 = fun(n-4)
+    dp[n-2] = ans1
+    dp[n-4] = ans2
+    return ans1+ans2
+print(optimised_fun(16))
+    
+//test_arr:
+
+
+n = 3
+dp = [[0]*n]*n
+#print(dp)
+
+dp[0][1] = 5
+#print(dp)
+
+
+dp2 = [[0 for i in range(n)] for j in range(n)]
+print(dp2)
+dp2[0][1] = 5
+print(dp2)
+
+//unique_position:
+def main():
+    _str = "bfbfbfbbfbbfbfbfb"
+    visited = [0 for i in range(1000)]
+    cp = 0
+    visited[cp]=1
+    ans = 1
+    for ch in _str:
+        if ch == 'b':
+            if cp-1>=0:
+                cp-=1
+        else:
+            cp+=2
+        if visited[cp]!=1:
+            ans+=1
+            visited[cp]=1
+    return ans
+
+print(main())
